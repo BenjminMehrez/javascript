@@ -1,8 +1,13 @@
-function darBienvenida() {
-    alert("Bienvenido")
-}
+let nombreUsuario = prompt('Ingresa tu nombre');
+alert('Bienvenido/a ' + nombreUsuario);
 
-darBienvenida();
+let edadUsuario = parseInt(prompt('Ingresa tu edad actual'));
+let edadEn5 = edadUsuario + 5;
+console.log(edadEn5);
+alert('En 5 años tendras ' + edadEn5 + ' años');
+
+
+
 
 // function calcularEdad() {
 //     const year = 2022;
@@ -29,9 +34,9 @@ darBienvenida();
 // multiplica(primerNum, segundoNum);
 
 
-function calcularenvio(precio){
+function calcularenvio(precio) {
     let totalenvio = precio * 1.50;
-    alert("El precio total del envio es de: $"+totalenvio);
+    alert("El precio total del envio es de: $" + totalenvio);
 }
 
 
@@ -43,13 +48,14 @@ function calcularenvio(precio){
 // }
 
 let precioProd = parseFloat(prompt("Ingrese el precio del producto (0 para salir)"));
-while(precioProd !=0){
+while (precioProd != 0) {
     calcularenvio(precioProd);
     precioProd = parseFloat(prompt("Ingrese el precio del producto (0 para salir)"));
 }
 
-function adios(){
+function adios() {
     alert("Que tengo un lindo dia")
 }
 
 adios();
+
