@@ -1,5 +1,10 @@
 class Zapatilla {
     constructor(marca, color, anio, calidad, id) {
+        this.marca = marca;
+        this.color = color; 
+        this.anio = parseInt(anio); 
+        this.calidad = parseInt(calidad); 
+        this.id = id; 
 
     }
     asignarId(array) {
@@ -31,7 +36,7 @@ while (continuar) {
         break;
     }
 
-    let datos = Ingreso.split('/')
+    let datos = Ingreso.split('/');
 
     const zapatilla = new Zapatilla(datos[0], datos[1], datos[2], datos[3], datos[4]);
     zapatillas.push(zapatilla);
@@ -39,8 +44,40 @@ while (continuar) {
 
 }
 
-let 
+let catalogo = prompt('Elige el catalogo deseado:\n1 - Marca (A a Z) \n2 - Marca (Z a A)\n3 - Mejor a peor calidad \n 4 -Fecha de creacion');
 
+function ordenar(catalogo, array) {
+    let arrayOrdenado = array.slice(0);
+
+    switch (catalogo) {
+        case '1':
+            return nombreAscendente = arrayOrdenado.sort((a, b) => a.marca.localeCompare(b.marca));
+        case '2':
+            return nombreDescendente = arrayOrdenado.sort((a, b) => b.marca.localeCompare(a.marca));
+        case '3':
+            return arrayOrdenado.sort((a, b) => b.calidad - a.calidad);
+        case '4':
+            return arrayOrdenado.sort((a, b) => a.anio - b.anio);
+        default:
+            alert('Elija una opción valida por favor');
+            break;
+    }
+}
+
+
+
+function crearStringResultado(array) {
+    let info = ''
+
+    array.forEach(elemento => {
+        info+= 'Marca: ' + elemento.marca + '\nColor: ' + elemento.color + '\nAño de creacion: ' + elemento.anio + '\nCalidad: ' + elemento.calidad + 'puntos.\n\n'
+    });
+    return info;
+
+}
+
+
+alert(crearStringResultado(ordenar(catalogo, zapatillas)));
 
 
 
