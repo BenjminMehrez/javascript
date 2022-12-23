@@ -1,61 +1,223 @@
-let nombreUsuario = prompt('Ingresa tu nombre');
-alert('Bienvenido/a ' + nombreUsuario);
+class Zapatilla {
+    constructor(marca, color, anio, calidad, id) {
 
-let edadUsuario = parseInt(prompt('Ingresa tu edad actual'));
-let edadEn5 = edadUsuario + 5;
-console.log(edadEn5);
-alert('En 5 años tendras ' + edadEn5 + ' años');
+    }
+    asignarId(array) {
+        this.id = array.length;
 
+    }
+    asignarCalidad(calidad) {
+        this.calidad = calidad;
+    }
 
-
-
-// function calcularEdad() {
-//     const year = 2022;
-//     let nacimiento = parseInt(prompt("Ingresa el año en que naciste"));
-//     let edad = year - nacimiento;
-//     alert("Tenes " + edad + " años");
-// }
-
-//calcularEdad();
-
-
-// function multiplica(num1, num2) {
-//     let resultado = num1 * num2;
-//     alert("El resultado de multiplicar " + num1 + " x " + num2 + " es: " + resultado);
-// }
-
-
-//multiplica(6,6);
-
-
-// let primerNum = parseInt(prompt("Ingrese el primer numero"));
-// let segundoNum = parseInt(prompt("Ingrese el segundo numero"));
-
-// multiplica(primerNum, segundoNum);
-
-
-function calcularenvio(precio) {
-    let totalenvio = precio * 1.50;
-    alert("El precio total del envio es de: $" + totalenvio);
 }
 
+const zapatillas = [
+    new Zapatilla('Nike', 'azul', '2022', 8, 1),
+    new Zapatilla('Adidas', 'Negro', '2021', 9, 2),
+    new Zapatilla('Topper', 'gris', '2020', 7, 3),
+    new Zapatilla('Puma', 'marron', '2022', 9, 4),
+    new Zapatilla('Kappa', 'azul', '2021', 7, 5),
+    new Zapatilla('Rebook', 'blanco', '2020', 6, 6),
+]
 
-// let precioProd = parseFloat(prompt("Ingresa el precio del producto"))
-// calcularenvio(precioProd);
-// for (let i=1; i<4;i++){
-//     let precioProd = parseFloat(prompt("Ingrese el precio del segundo producto producto"));
-//     calcularenvio(precioProd);
+let continuar = true;
+
+while (continuar) {
+    let Ingreso = prompt('Ingresa los datos de la zapatilla: marca, color, año, calidad de 1 a 10, separados por(/). Ingresa X para finalizar');
+
+    if (Ingreso.toUpperCase() == 'X') {
+        continuar = false;
+        break;
+    }
+
+    let datos = Ingreso.split('/')
+
+    const zapatilla = new Zapatilla(datos[0], datos[1], datos[2], datos[3], datos[4]);
+    zapatillas.push(zapatilla);
+    zapatilla.asignarId(zapatillas);
+
+}
+
+let 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function dibujarLinea() {
+//     console.log("--------------------------------------");
 // }
 
-let precioProd = parseFloat(prompt("Ingrese el precio del producto (0 para salir)"));
-while (precioProd != 0) {
-    calcularenvio(precioProd);
-    precioProd = parseFloat(prompt("Ingrese el precio del producto (0 para salir)"));
-}
+// function mostrarListado() {
+//     alert("¡BIENVENIDO A NUESTRO SHOP ONLINE DE YERBAS " + (usuario.nombre).toUpperCase() + "!\nLos productos disponibles son los siguientes:\n");
+//     dibujarLinea();
+//     listaYerbas.forEach(yerba => {
+//         alert(yerba.id + "-" + yerba.nombre + ": $" + yerba.precio + " Stock Disponible: " + yerba.stock + "\n");
+//     });
+//     dibujarLinea();
+//     alert("Tienes $" + usuario.dinero + " disponibles.\n")
+// }
 
-function adios() {
-    alert("Que tengo un lindo dia")
-}
+// function logueoInicial() {
+//     SOLICITO NOMBRE DE USUARIO A BUSCAR
+//     let nombreBuscado = prompt("Ingrese el nombre de usuario");
+//     BUSCO EN EL ARRAY EL NOMBRE BUSCADO
+//     const resultado = arrayUsuarios.find((usuario) => usuario.nombre === nombreBuscado);
+//     SI EL RESULTADO NO ES INDEFINIDO, ES DECIR QUE SE HA ENCONTRADO EL USUARIO
+//     if (resultado != undefined) {
+//         SOLICITO LA CONTRASEÑA
+//         let contraseñaBuscada = prompt("Ingrese la contraseña");
+//         MIENTRAS QUE LA CONTRASEÑA SEA INCORRECTA SIGO SOLICITANDOLA
+//         while (resultado.contraseña != contraseñaBuscada) {
+//             alert("Lo siento, la contraseña es incorrecta. Intente nuevamente.");
+//             contraseñaBuscada = prompt("Ingrese la contraseña");
+//         }
+//         return resultado;
+//     } else {
+//         SI EL USUARIO ES INCORRECTO, VUELVO A INICIAR EL LOGUEO
+//         alert("Lo siento, la información brindada es incorrecta. Intente nuevamente.");
+//         logueoInicial();
+//     }
+// }
 
-adios();
+// function mostrarSaldo() {
+//     alert("Su saldo actual es de: " + usuario.dinero);
+// }
 
+// function nombreYerba(idBuscado) {
+//     const resultado = listaYerbas.find((yerba) => yerba.id == idBuscado);
+//     return resultado.nombre;
+// }
+
+// function precioYerba(idBuscado) {
+//     const resultado = listaYerbas.find((yerba) => yerba.id == idBuscado);
+//     return resultado.precio;
+// }
+
+// function comprobarStock(idBuscado) {
+//     const resultado = listaYerbas.find((yerba) => yerba.id == idBuscado);
+//     if (resultado.stock >= 1) {
+//         return true;
+//     } else return false;
+// }
+
+// function quitarUnStock(idBuscado) {
+//     const resultado = listaYerbas.find((yerba) => yerba.id == idBuscado);
+//     resultado.stock -= 1;
+// }
+
+// function realizarCompra(compra) {
+//     if (usuario.dinero >= precioYerba(compra)) {
+//         if (comprobarStock(compra) == true) {
+//             quitarUnStock(compra);
+//             usuario.dinero -= precioYerba(compra);
+//             console.log("Compra realizada\n");
+//             console.log("Tu dinero actual es: " + usuario.dinero);
+//             return true;
+//         } else {
+//             alert("Lo sentimos. No hay Stock");
+//         }
+//     }
+// }
+
+// function menuOpciones() {
+//     let opcion = prompt("Ingrese un ID o -1 para dejar de comprar.")
+//     while (opcion != -1) {
+//         switch (opcion) {
+//             case "1":
+//                 if (realizarCompra(opcion) == true) {
+//                     alert("Gracias por su compra!");
+//                 }
+//                 break;
+//             case "2":
+//                 if (realizarCompra(opcion) == true) {
+//                     alert("Gracias por su compra!");
+//                 }
+//                 break;
+//             case "3":
+//                 if (realizarCompra(opcion) == true) {
+//                     alert("Gracias por su compra!");
+//                 }
+//                 break;
+//             case "4":
+//                 if (realizarCompra(opcion) == true) {
+//                     alert("Gracias por su compra!");
+//                 }
+//                 break;
+//             default:
+//                 console.log("Ingreso erroneo");
+//                 break;
+//         }
+//         opcion = prompt("Ingrese un ID o -1 para dejar de comprar.");
+//     }
+//     console.log("¡Gracias por tu compra!");
+// }
+
+// DECLARO LA CLASE YERBA
+// class Yerba {
+//     constructor(id, nombre, precio, stock = 5) {
+//         this.id = id;
+//         this.nombre = nombre;
+//         this.precio = precio;
+//         this.stock = stock;
+//     }
+
+//     comprarYerba() {
+//         this.stock--;
+//     }
+
+//     mostrarPrecio() {
+//         return ("$" + this.precio);
+//     }
+// }
+
+// CREO YERBAS Y EL ARRAY QUE CONTIENE LAS YERBAS
+// const yerba1 = new Yerba(01, "Yerba La Tronquera", 960);
+// const yerba2 = new Yerba(02, "Yerba Playadote", 600);
+// const yerba3 = new Yerba(03, "Yerba Rezamonjes", 500);
+// const yerba4 = new Yerba(04, "Yerba Tardaluis", 690);
+
+// const listaYerbas = [yerba1, yerba2, yerba3, yerba4];
+
+// DECLARO LA CLASE USUARIO
+// class Usuario {
+//     constructor(nombre, contraseña, dinero = 5000) {
+//         this.nombre = nombre;
+//         this.contraseña = contraseña;
+//         this.dinero = dinero;
+//     }
+// }
+
+// CREO USUARIOS Y EL ARRAY QUE CONTIENE LOS USUARIOS
+// const usuario1 = new Usuario("admin", "1234");
+// const usuario2 = new Usuario("Edgar", "yoEdgar");
+
+// const arrayUsuarios = [usuario1, usuario2];
+
+// let usuario = logueoInicial();
+
+// mostrarListado();
+
+// console.log("Presione un boton para continuar...");
+
+// menuOpciones();
