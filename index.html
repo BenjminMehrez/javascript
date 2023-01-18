@@ -5,16 +5,122 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript</title>
+    <link rel="shortcut icon" href="./assets/icon.png">
+    <title>Zapatillas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/estilo.css">
     <script defer src="./js/script.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-    <h1 class="conteiner">Segunda Pre Entrega</h1>
+    <div class="px-4 py-5 my-5 text-center">
+        <img class="d-block mx-auto mb-4 w-25 svgClass" src="">
+        <h1 class="display-5 fw-bold text-decoration-underline">Zapatillas</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Agrega tus zapatillas favoritas, de las más caras a las mas facheras. 
+            </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button id="agregar" type="button" class="btn btn-secondary btn-lg px-4 gap-3" data-bs-toggle="modal"
+                    data-bs-target="#ModalAgregar">Agrega Zapatillas</button>
+                <button id="eliminar" type="button" class="btn btn-outline-secondary btn-lg px-4" data-bs-toggle="modal"
+                    data-bs-target="#ModalEliminar">Eliminar zapatilla</button>
+            </div>
+        </div>
+    </div>
 
+    <main id="zapatilla-contenedor" class="container text-center">
+    </main>
+
+    <div class="modal fade" id="ModalAgregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agrega una nueva zapatilla</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="agregar-form">
+                        <div class="mb-3">
+                            <label for="zapatillaMarcaNuevo" class="form-label">Marca de zapatilla</label>
+                            <input type="text" class="form-control" id="zapatillaMarcaNuevo" placeholder="Messi">
+                        </div>
+                        <div class="mb-3">
+                            <label for="zapatillaColorNuevo" class="form-label">Color</label>
+                            <input type="numb" class="form-control" id="zapatillaColorNuevo" placeholder="morado">
+                        </div>
+                        <div class="mb-3">
+                            <label for="zapatillaAnioNuevo" class="form-label">Año de creacion</label>
+                            <input type="numb" class="form-control" id="zapatillaAnioNuevo" placeholder="2003">
+                        </div>
+                        <div class="mb-3">
+                            <label for="zapatillaCalidadNuevo" class="form-label">Calidad</label>
+                            <input type="text" class="form-control" id="zapatillaCalidadNuevo" placeholder="8">
+                        </div>
+                        <div class="mb-3">
+                            <label for="zapatillaIdNuevo" class="form-label">ID</label>
+                            <input type="numb" class="form-control" id="zapatillaIdNuevo" placeholder="7">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="btnAgregarZapatilla" data-bs-dismiss="modal">Crear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ModalFiltrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Filtra las zapatillas</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="zapatillaFiltro" class="form-label">Filtro</label>
+                            <input type="email" class="form-control" id="zapatillaFiltro" placeholder="Filtro"
+                                aria-describedby="emailHelp">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Filtrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ModalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Elige que zapatilla eliminar</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <select id="modal-opciones-eliminar" class="form-select" aria-label="Default select example">
+                        <option selected>Selecciona una zapatilla</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button id="btnEliminarModal" type="button" class="btn btn-primary" data-bs-dismiss="modal">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
+
 
 </html>

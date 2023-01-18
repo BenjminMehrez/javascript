@@ -1,260 +1,244 @@
-class Zapatilla {
-    constructor(marca, color, anio, calidad, id) {
-        this.marca = marca;
-        this.color = color; 
-        this.anio = parseInt(anio); 
-        this.calidad = parseInt(calidad); 
-        this.id = id; 
+// class Zapatilla {
+//     constructor(marca, color, anio, calidad, id) {
+//         this.marca = marca;
+//         this.color = color; 
+//         this.anio = parseInt(anio); 
+//         this.calidad = parseInt(calidad); 
+//         this.id = id; 
 
-    }
-    asignarId(array) {
-        this.id = array.length;
+//     }
+//     asignarId(array) {
+//         this.id = array.length;
 
-    }
-    asignarCalidad(calidad) {
-        this.calidad = calidad;
-    }
+//     }
+//     asignarCalidad(calidad) {
+//         this.calidad = calidad;
+//     }
 
-}
-
-const zapatillas = [
-    new Zapatilla('Nike', 'azul', '2022', 8, 1),
-    new Zapatilla('Adidas', 'Negro', '2021', 9, 2),
-    new Zapatilla('Topper', 'gris', '2020', 7, 3),
-    new Zapatilla('Puma', 'marron', '2022', 9, 4),
-    new Zapatilla('Kappa', 'azul', '2021', 7, 5),
-    new Zapatilla('Rebook', 'blanco', '2020', 6, 6),
-]
-
-let continuar = true;
-
-while (continuar) {
-    let Ingreso = prompt('Ingresa los datos de la zapatilla: marca, color, año, calidad de 1 a 10, separados por(/). Ingresa X para finalizar');
-
-    if (Ingreso.toUpperCase() == 'X') {
-        continuar = false;
-        break;
-    }
-
-    let datos = Ingreso.split('/');
-
-    const zapatilla = new Zapatilla(datos[0], datos[1], datos[2], datos[3], datos[4]);
-    zapatillas.push(zapatilla);
-    zapatilla.asignarId(zapatillas);
-
-}
-
-let catalogo = prompt('Elige el catalogo deseado:\n1 - Marca (A a Z) \n2 - Marca (Z a A)\n3 - Mejor a peor calidad \n 4 -Fecha de creacion');
-
-function ordenar(catalogo, array) {
-    let arrayOrdenado = array.slice(0);
-
-    switch (catalogo) {
-        case '1':
-            return nombreAscendente = arrayOrdenado.sort((a, b) => a.marca.localeCompare(b.marca));
-        case '2':
-            return nombreDescendente = arrayOrdenado.sort((a, b) => b.marca.localeCompare(a.marca));
-        case '3':
-            return arrayOrdenado.sort((a, b) => b.calidad - a.calidad);
-        case '4':
-            return arrayOrdenado.sort((a, b) => a.anio - b.anio);
-        default:
-            alert('Elija una opción valida por favor');
-            break;
-    }
-}
-
-
-
-function crearStringResultado(array) {
-    let info = ''
-
-    array.forEach(elemento => {
-        info+= 'Marca: ' + elemento.marca + '\nColor: ' + elemento.color + '\nAño de creacion: ' + elemento.anio + '\nCalidad: ' + elemento.calidad + 'puntos.\n\n'
-    });
-    return info;
-
-}
-
-
-alert(crearStringResultado(ordenar(catalogo, zapatillas)));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function dibujarLinea() {
-//     console.log("--------------------------------------");
 // }
 
-// function mostrarListado() {
-//     alert("¡BIENVENIDO A NUESTRO SHOP ONLINE DE YERBAS " + (usuario.nombre).toUpperCase() + "!\nLos productos disponibles son los siguientes:\n");
-//     dibujarLinea();
-//     listaYerbas.forEach(yerba => {
-//         alert(yerba.id + "-" + yerba.nombre + ": $" + yerba.precio + " Stock Disponible: " + yerba.stock + "\n");
+// const zapatillas = [
+//     new Zapatilla('Nike', 'azul', '2022', 8, 1),
+//     new Zapatilla('Adidas', 'Negro', '2021', 9, 2),
+//     new Zapatilla('Topper', 'gris', '2020', 7, 3),
+//     new Zapatilla('Puma', 'marron', '2022', 9, 4),
+//     new Zapatilla('Kappa', 'azul', '2021', 7, 5),
+//     new Zapatilla('Rebook', 'blanco', '2020', 6, 6),
+// ]
+
+
+// let continuar = true;
+
+// while (continuar) {
+//     let Ingreso = prompt('Ingresa los datos de la zapatilla: marca, color, año, calidad de 1 a 10, separados por(/). Ingresa X para finalizar');
+
+//     if (Ingreso.toUpperCase() == 'X') {
+//         continuar = false;
+//         break;
+//     }
+
+//     let datos = Ingreso.split('/');
+
+//     const zapatilla = new Zapatilla(datos[0], datos[1], datos[2], datos[3], datos[4]);
+//     zapatillas.push(zapatilla);
+//     zapatilla.asignarId(zapatillas);
+
+// }
+
+// let catalogo = prompt('Elige el catalogo deseado:\n1 - Marca (A a Z) \n2 - Marca (Z a A)\n3 - Mejor a peor calidad \n 4 -Fecha de creacion');
+
+// function ordenar(catalogo, array) {
+//     let arrayOrdenado = array.slice(0);
+
+//     switch (catalogo) {
+//         case '1':
+//             return nombreAscendente = arrayOrdenado.sort((a, b) => a.marca.localeCompare(b.marca));
+//         case '2':
+//             return nombreDescendente = arrayOrdenado.sort((a, b) => b.marca.localeCompare(a.marca));
+//         case '3':
+//             return arrayOrdenado.sort((a, b) => b.calidad - a.calidad);
+//         case '4':
+//             return arrayOrdenado.sort((a, b) => a.anio - b.anio);
+//         default:
+//             alert('Elija una opción valida por favor');
+//             break;
+//     }
+// }
+
+
+
+// function crearStringResultado(array) {
+//     let info = ''
+
+//     array.forEach(elemento => {
+//         info+= 'Marca: ' + elemento.marca + '\nColor: ' + elemento.color + '\nAño de creacion: ' + elemento.anio + '\nCalidad: ' + elemento.calidad + 'puntos.\n\n'
 //     });
-//     dibujarLinea();
-//     alert("Tienes $" + usuario.dinero + " disponibles.\n")
+//     return info;
 // }
 
-// function logueoInicial() {
-//     SOLICITO NOMBRE DE USUARIO A BUSCAR
-//     let nombreBuscado = prompt("Ingrese el nombre de usuario");
-//     BUSCO EN EL ARRAY EL NOMBRE BUSCADO
-//     const resultado = arrayUsuarios.find((usuario) => usuario.nombre === nombreBuscado);
-//     SI EL RESULTADO NO ES INDEFINIDO, ES DECIR QUE SE HA ENCONTRADO EL USUARIO
-//     if (resultado != undefined) {
-//         SOLICITO LA CONTRASEÑA
-//         let contraseñaBuscada = prompt("Ingrese la contraseña");
-//         MIENTRAS QUE LA CONTRASEÑA SEA INCORRECTA SIGO SOLICITANDOLA
-//         while (resultado.contraseña != contraseñaBuscada) {
-//             alert("Lo siento, la contraseña es incorrecta. Intente nuevamente.");
-//             contraseñaBuscada = prompt("Ingrese la contraseña");
-//         }
-//         return resultado;
-//     } else {
-//         SI EL USUARIO ES INCORRECTO, VUELVO A INICIAR EL LOGUEO
-//         alert("Lo siento, la información brindada es incorrecta. Intente nuevamente.");
-//         logueoInicial();
-//     }
-// }
+// alert(crearStringResultado(ordenar(catalogo, zapatillas)));
 
-// function mostrarSaldo() {
-//     alert("Su saldo actual es de: " + usuario.dinero);
-// }
+let zapatillas = [
+    {
+        Marca: 'Nike',
+        color: 'azul',
+        anio: 2022,
+        calidad: 8,
+        id: 1
+    },
+    {
+        Marca: 'Adidas',
+        color: 'Negro',
+        anio: '2021',
+        calidad: 9,
+        id: 2
+    },
+    {
+        Marca: 'Topper',
+        color: 'gris',
+        anio: '2020',
+        calidad: 7,
+        id: 3
+    },
+    {
+        Marca: 'Puma',
+        color: 'marron',
+        anio: '2022',
+        calidad: 9,
+        id: 4
+    },
+    {
+        Marca: 'Kappa',
+        color: 'azul',
+        anio: '2021',
+        calidad: 7,
+        id: 5
+    },
+    {
+        Marca: 'Rebook',
+        color: 'blanco',
+        anio: '2020',
+        calidad: 6,
+        id: 6
+    },
+];
 
-// function nombreYerba(idBuscado) {
-//     const resultado = listaYerbas.find((yerba) => yerba.id == idBuscado);
-//     return resultado.nombre;
-// }
 
-// function precioYerba(idBuscado) {
-//     const resultado = listaYerbas.find((yerba) => yerba.id == idBuscado);
-//     return resultado.precio;
-// }
+// Chequear si hay una base de datos previa en la memoria local
+const zapatillasEnLS = JSON.parse(localStorage.getItem("zapatillasEnLS"));
+if (zapatillasEnLS !== null) {
+    zapatillas = zapatillasEnLS;
+    console.log("Lista de zapatillas");
+} else {
+    const zapatillasEnLS = zapatillas;
+}
 
-// function comprobarStock(idBuscado) {
-//     const resultado = listaYerbas.find((yerba) => yerba.id == idBuscado);
-//     if (resultado.stock >= 1) {
-//         return true;
-//     } else return false;
-// }
+// Modal "Agregar país": Función para agregar un nuevo país al array
+const botonAgregar = document.querySelector("#btnAgregarZapatilla");
+botonAgregar.addEventListener("click", agregarZapatilla);
+const formulario = document.querySelector("#agregar-form");
 
-// function quitarUnStock(idBuscado) {
-//     const resultado = listaYerbas.find((yerba) => yerba.id == idBuscado);
-//     resultado.stock -= 1;
-// }
+function agregarZapatilla(e) {
+    e.preventDefault();
+    const marca = document.querySelector("#zapatillaMarcaNuevo").value;
+    const color = document.querySelector("#zapatillaColorNuevo").value;
+    const anio = document.querySelector("#zapatillaAnioNuevo").value;
+    const calidad = document.querySelector("#zapatillaCalidadNuevo").value;
+    const id = document.querySelector("#zapatillaIdNuevo").value;
 
-// function realizarCompra(compra) {
-//     if (usuario.dinero >= precioYerba(compra)) {
-//         if (comprobarStock(compra) == true) {
-//             quitarUnStock(compra);
-//             usuario.dinero -= precioYerba(compra);
-//             console.log("Compra realizada\n");
-//             console.log("Tu dinero actual es: " + usuario.dinero);
-//             return true;
-//         } else {
-//             alert("Lo sentimos. No hay Stock");
-//         }
-//     }
-// }
+    // Crear un nuevo objeto con la información del país
+    const zapatilla = {
+        Marca: marca,
+        color: color,
+        anio: anio,
+        calidad: calidad,
+        id: id,
+    };
 
-// function menuOpciones() {
-//     let opcion = prompt("Ingrese un ID o -1 para dejar de comprar.")
-//     while (opcion != -1) {
-//         switch (opcion) {
-//             case "1":
-//                 if (realizarCompra(opcion) == true) {
-//                     alert("Gracias por su compra!");
-//                 }
-//                 break;
-//             case "2":
-//                 if (realizarCompra(opcion) == true) {
-//                     alert("Gracias por su compra!");
-//                 }
-//                 break;
-//             case "3":
-//                 if (realizarCompra(opcion) == true) {
-//                     alert("Gracias por su compra!");
-//                 }
-//                 break;
-//             case "4":
-//                 if (realizarCompra(opcion) == true) {
-//                     alert("Gracias por su compra!");
-//                 }
-//                 break;
-//             default:
-//                 console.log("Ingreso erroneo");
-//                 break;
-//         }
-//         opcion = prompt("Ingrese un ID o -1 para dejar de comprar.");
-//     }
-//     console.log("¡Gracias por tu compra!");
-// }
+    // Agregar el nuevo objeto al array de países
+    borrarZapatillasViejos();
+    zapatillas.push(zapatilla);
 
-// DECLARO LA CLASE YERBA
-// class Yerba {
-//     constructor(id, nombre, precio, stock = 5) {
-//         this.id = id;
-//         this.nombre = nombre;
-//         this.precio = precio;
-//         this.stock = stock;
-//     }
+    localStorage.setItem("zapatillasEnLS", JSON.stringify(zapatillas));
 
-//     comprarYerba() {
-//         this.stock--;
-//     }
+    pintarZapatillas();
+    formulario.reset();
+}
 
-//     mostrarPrecio() {
-//         return ("$" + this.precio);
-//     }
-// }
+//Borrar set de países viejos al agregar uno nuevo
+const borrarZapatillasViejos = () => {
+    const contenedor = document.getElementById("zapatilla-contenedor");
+    while (contenedor.firstChild) {
+        contenedor.removeChild(contenedor.firstChild);
+    }
+};
 
-// CREO YERBAS Y EL ARRAY QUE CONTIENE LAS YERBAS
-// const yerba1 = new Yerba(01, "Yerba La Tronquera", 960);
-// const yerba2 = new Yerba(02, "Yerba Playadote", 600);
-// const yerba3 = new Yerba(03, "Yerba Rezamonjes", 500);
-// const yerba4 = new Yerba(04, "Yerba Tardaluis", 690);
+//Modal "Eliminar Países": Lista de opciones
+const modalEliminarZapatillas = () => {
+    const contenedorModal = document.getElementById("modal-opciones-eliminar");
+    while (contenedorModal.firstChild) {
+        contenedorModal.removeChild(contenedorModal.firstChild);
+    }
+    const option = document.createElement('option');
+    option.innerHTML += `<option selected>Selecciona una zapatilla de esta lista</option>`
+    contenedorModal.appendChild(option);
+    zapatillas.forEach(zapatilla => {
+        const option = document.createElement('option');
+        option.innerHTML += `<option> ${zapatilla.Marca} </option>`
+        contenedorModal.appendChild(option);
+    });
+};
 
-// const listaYerbas = [yerba1, yerba2, yerba3, yerba4];
 
-// DECLARO LA CLASE USUARIO
-// class Usuario {
-//     constructor(nombre, contraseña, dinero = 5000) {
-//         this.nombre = nombre;
-//         this.contraseña = contraseña;
-//         this.dinero = dinero;
-//     }
-// }
+// Modal "Eliminar Países": Funcionalidad botón Eliminar
+const btnEliminarModal = document.getElementById("btnEliminarModal");
+btnEliminarModal.addEventListener("click", eliminarZapatilla);
 
-// CREO USUARIOS Y EL ARRAY QUE CONTIENE LOS USUARIOS
-// const usuario1 = new Usuario("admin", "1234");
-// const usuario2 = new Usuario("Edgar", "yoEdgar");
+function eliminarZapatilla() {
+    const select = document.getElementById("modal-opciones-eliminar");
+    const marca = select.value;
 
-// const arrayUsuarios = [usuario1, usuario2];
+    // Validar que se haya seleccionado un país
+    if (marca === "Selecciona una zapatilla de esta lista") {
+        alert("Selecciona una zapatilla de la lista para eliminarlo.");
+        return;
+    }
+    // Eliminar el país del array
+    const indice = zapatillas.findIndex(zapatilla => zapatilla.Marca === marca);
+    zapatillas.splice(indice, 1);
 
-// let usuario = logueoInicial();
+    modalEliminarZapatillas();     // Actualizar la lista de países en el modal
 
-// mostrarListado();
+    localStorage.setItem("zapatillasEnLS", JSON.stringify(zapatillas));
 
-// console.log("Presione un boton para continuar...");
+    borrarZapatillasViejos();
+    pintarZapatillas();
+}
 
-// menuOpciones();
+//Cuerpo HTML: Mostrar Países
+const pintarZapatillas = () => {
+    const contenedor = document.getElementById("zapatilla-contenedor");
+    zapatillas.forEach(zapatilla => {
+        const div = document.createElement('div');
+        div.classList.add('caja');
+        div.innerHTML += `<div class="card-image">
+                        <p class="titulos">${zapatilla.Marca}</p>
+                        </div>
+                        <div class="card-content">
+                            <p>Color: ${zapatilla.color.toLocaleString()}</p>
+                            <p>Año: ${zapatilla.anio.toLocaleString()}</p>
+                            <p>Calidad: ${zapatilla.calidad}</p>
+                            <p>Id: ${zapatilla.id.toLocaleString()}</p>                           
+                        </div>`
+        contenedor.appendChild(div);
+    });
+    modalEliminarZapatillas(); //Refrescar la lista de países en el modal
+};
+
+// Carga inicial de la pagina 
+document.addEventListener('DOMContentLoaded', () => {
+    pintarZapatillas();
+    modalEliminarZapatillas();
+});
+
+
